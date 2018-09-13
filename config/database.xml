@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+	<connection name="connectionMySQL">
+		<driver>com.mysql.jdbc.Driver</driver>
+		<url>jdbc:mysql://localhost/ExampleUsers</url>
+		<user>root</user>
+		<pass>admin</pass>
+	</connection>
+	
+	<connection name="connectionOracle">
+		<driver>oracle.jdbc.driver.OracleDriver</driver>
+		<url>jdbc:oracle:thin:@localhost:1521:xe</url>
+		<user>system</user>
+		<pass>admin</pass>
+	</connection>
+</config>
