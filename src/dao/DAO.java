@@ -8,4 +8,13 @@ public interface DAO {
 	
 	//OFF
 	boolean off() throws Exception;
+	
+	//BEGIN TRANSACTION
+	void beginTransaction() throws Exception;
+	
+	//COMMIT
+	void commit() throws Exception;
+	
+	//ROLLBACK
+	void rollback() throws Exception;
 }

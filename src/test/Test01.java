@@ -3,27 +3,27 @@ package test;
 import java.time.LocalDate;
 import java.util.List;
 
-import dao.UserDAO;
-import dao.UserDAOImpl;
+import facade.UserFacade;
+import facade.UserFacadeImpl;
 import dto.UserDTO;
 
 public class Test01 {
 
 	public static void main(String[] args) {
 		//VARIABLES
-		UserDAO dao = null;
+		UserFacade facade = null;
 		int lastInsert = 0;
 		
 		//ADD
 		try{
-			//INSTANCE OF DAOT
-			dao = new UserDAOImpl();
+			//INSTANCE OF FACADE
+			facade = new UserFacadeImpl();
 			
 			//CREATE USER
 			UserDTO user = new UserDTO( "pepito", "Pepe", "Flores", "Florin", LocalDate.now(), true );
 
 			//ADD USER
-			boolean resultAdd = dao.add( user );
+			boolean resultAdd = facade.add( user );
 			
 			//CHECK RESULT
 			if( resultAdd ){
@@ -43,7 +43,7 @@ public class Test01 {
 		//GET AND EDIT
 		try{	
 			//GET USER 1
-			UserDTO user = dao.get( 1 );
+			UserDTO user = facade.findById( 1 );
 			
 			//SHOW USER
 			System.out.println( "\nGet user 1\n" + user );
@@ -52,7 +52,7 @@ public class Test01 {
 			user.setUsername( "PaquitoElChocolatero!" );
 			
 			//EDIT USER
-			boolean resultEdit = dao.edit( user );
+			boolean resultEdit = facade.edit( user );
 			
 			//CHECK RESULT
 			if( resultEdit ){
@@ -72,7 +72,7 @@ public class Test01 {
 		//GET ALL
 		try{	
 			//GET ALL USERS
-			List<UserDTO> users = dao.getAll();
+			List<UserDTO> users = facade.findAll();
 			
 			//SHOW USERS
 			System.out.println( "\n--- All USERS ---" );
@@ -92,7 +92,7 @@ public class Test01 {
 		//REMOVE
 		try{
 			//REMOVE LAST USER
-			boolean resultRemove = dao.remove( lastInsert );
+			boolean resultRemove = facade.remove( lastInsert );
 			
 			//CHECK RESULT
 			if( resultRemove ){
@@ -112,7 +112,7 @@ public class Test01 {
 		//GET AND EDIT
 		try{	
 			//GET USER 1
-			UserDTO user = dao.get( 1 );
+			UserDTO user = facade.findById( 1 );
 			
 			//SHOW USER
 			System.out.println( "\nGet user 1\n" + user );
@@ -121,7 +121,7 @@ public class Test01 {
 			user.setUsername( "Pepe" );
 			
 			//EDIT USER
-			boolean resultEdit = dao.edit( user );
+			boolean resultEdit = facade.edit( user );
 			
 			//CHECK RESULT
 			if( resultEdit ){
@@ -141,7 +141,7 @@ public class Test01 {
 		//GET ALL
 		try{	
 			//GET ALL USERS
-			List<UserDTO> users = dao.getAll();
+			List<UserDTO> users = facade.findAll();
 			
 			//SHOW USERS
 			System.out.println( "\n--- All USERS ---" );

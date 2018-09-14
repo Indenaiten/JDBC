@@ -97,7 +97,34 @@ public class DAOImpl implements DAO{
 			result = true;
 		}
 		
+		//ABLE AUTOCOMMIT
+		this.cn.setAutoCommit( true );
+		
 		//RETURN RESULT
 		return result;
+	}
+	
+	//BEGIN TRANSACTION
+	public void beginTransaction() throws Exception{
+		//DISABLE AUTOCOMMIT
+		this.cn.setAutoCommit( false );
+	}
+	
+	//COMMIT
+	public void commit() throws Exception{
+		//COMMIT
+		this.cn.commit();
+		
+		//ABLE AUTOCOMMIT
+		this.cn.setAutoCommit( true );
+	}
+	
+	//ROLLBACK
+	public void rollback() throws Exception{
+		//ROLLBACK
+		this.cn.rollback();
+		
+		//ABLE AUTOCOMMIT
+		this.cn.setAutoCommit( true );
 	}
 }
