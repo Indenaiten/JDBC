@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <config>
+	<!-- CONNECTION WITH MySQL -->
 	<connection name="connectionMySQL">
 		<driver>com.mysql.jdbc.Driver</driver>
 		<url>jdbc:mysql://localhost/ExampleUsers</url>
@@ -7,10 +8,27 @@
 		<pass>admin</pass>
 	</connection>
 	
+	<!-- CONNECTION WITH ORACLE -->
 	<connection name="connectionOracle">
 		<driver>oracle.jdbc.driver.OracleDriver</driver>
 		<url>jdbc:oracle:thin:@localhost:1521:xe</url>
 		<user>system</user>
 		<pass>admin</pass>
+	</connection>
+
+	<!-- CONNECTION WITH SQLITE -->
+	<connection name="connectionSQLite">
+		<driver>org.sqlite.JDBC</driver>
+		<url>jdbc:sqlite:C:/database.db</url>
+		<user></user>
+		<pass></pass>
+	</connection>
+
+	<!-- CONNECTION WITH ACCESS -->
+	<connection name="connectionAccess">
+		<driver>net.ucanaccess.jdbc.UcanaccessDriver</driver>
+		<url>jdbc:ucanaccess://C:/database.accdb</url>
+		<user></user>
+		<pass></pass>
 	</connection>
 </config>
